@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
-<?import javafx.scene.layout.VBox?>
-<?import javafx.scene.control.Label?>
-
-<VBox xmlns:fx="http://javafx.com/fxml" fx:controller="deepfocus.controller.HistoricoController" alignment="TOP_CENTER" spacing="15">
-    <Label text="Histórico de Produtividade"/>
-</VBox>
