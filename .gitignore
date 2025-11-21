@@ -48,4 +48,4 @@ out/
 Thumbs.db
 
 # Local scripts with absolute paths (optional, keep if you want to share scripts but be careful)
-# run.bat
+run.bat
