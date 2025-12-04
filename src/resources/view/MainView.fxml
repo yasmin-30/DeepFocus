@@ -1,6 +1,53 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
 
-<AnchorPane xmlns:fx="http://javafx.com/fxml" fx:controller="deepfocus.controller.MainController">
-</AnchorPane>
+<BorderPane xmlns:fx="http://javafx.com/fxml" fx:controller="deepfocus.controller.MainController" 
+            stylesheets="@../styles.css" prefWidth="1000" prefHeight="600">
+    
+    <!-- Header -->
+    <top>
+        <HBox styleClass="header" alignment="CENTER_LEFT" spacing="15">
+            <Label text="☰" style="-fx-font-size: 20px; -fx-cursor: hand;" onMouseClicked="#toggleMenu"/>
+            <Label text="DEEPFOCUS" styleClass="header-title"/>
+        </HBox>
+    </top>
+    
+    <!-- Menu Lateral -->
+    <left>
+        <VBox fx:id="sidebar" styleClass="sidebar" prefWidth="165" spacing="0">
+            <Button text="Home" styleClass="menu-button,menu-button-selected" maxWidth="Infinity" 
+                    onAction="#showHome"/>
+            <Button text="Cronômetro" styleClass="menu-button" maxWidth="Infinity" 
+                    onAction="#showCronometro"/>
+            <Button text="Lembretes" styleClass="menu-button" maxWidth="Infinity" 
+                    onAction="#showLembretes"/>
+            <Button text="Notas" styleClass="menu-button" maxWidth="Infinity" 
+                    onAction="#showNotas"/>
+            <Button text="Histórico" styleClass="menu-button" maxWidth="Infinity" 
+                    onAction="#showHistorico"/>
+        </VBox>
+    </left>
+    
+    <!-- Área de Conteúdo -->
+    <center>
+        <StackPane fx:id="contentArea" styleClass="content-area">
+            <VBox alignment="CENTER" spacing="20">
+                <Label text="+ Criar" style="-fx-font-size: 18px; -fx-padding: 15px 30px; -fx-border-color: #cccccc; -fx-border-width: 1; -fx-background-color: white;"/>
+                
+                <VBox spacing="0" style="-fx-border-color: #cccccc; -fx-border-width: 1; -fx-background-color: white;" maxWidth="350">
+                    <Button text="Cronômetro" styleClass="secondary-button" maxWidth="Infinity" 
+                            style="-fx-border-radius: 0; -fx-background-radius: 0;" onAction="#showCronometro"/>
+                    <Separator/>
+                    <Button text="Lembrete" styleClass="secondary-button" maxWidth="Infinity" 
+                            style="-fx-border-radius: 0; -fx-background-radius: 0;" onAction="#showLembretes"/>
+                    <Separator/>
+                    <Button text="Adicionar nota" styleClass="secondary-button" maxWidth="Infinity" 
+                            style="-fx-border-radius: 0; -fx-background-radius: 0;" onAction="#showNotas"/>
+                </VBox>
+            </VBox>
+        </StackPane>
+    </center>
+</BorderPane>

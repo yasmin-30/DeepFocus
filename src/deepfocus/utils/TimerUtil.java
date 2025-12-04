@@ -24,36 +24,38 @@ public class TimerUtil {
 
     // Gerenciam a contagem
     private Timeline timeline;
-    private volatile int segundosRestando; 
-    
-    // Executor: Pool de threads estático para gerenciar tarefas de background (como waitMs)
+    private volatile int segundosRestando;
+
+    // Executor: Pool de threads estático para gerenciar tarefas de background (como
+    // waitMs)
     private static final ExecutorService executor = Executors.newCachedThreadPool();
-    
+
     // Inicia a contagem
     public void iniciarContagem(int segundos) {
         stop(); // Garante que o timer anterior seja parado
 
         this.segundosRestando = segundos;
-        
+
         // Define o passar do tempo (mudança no relógio)
         KeyFrame keyFrame = new KeyFrame(
-            Duration.seconds(1), 
-            actionEvent -> { 
-                
-                // Diminui e notifica o tempo restante
-            	if (tickListener != null) {
-            	    tickListener.onTick(segundosRestando);
-            	}
-            	segundosRestando--;
+                Duration.seconds(1),
+                actionEvent -> {
 
+                    // Notifica o tempo restante
+                    if (tickListener != null) {
+                        tickListener.onTick(segundosRestando);
+                    }
 
-                // Verifica se o timer chegou a zero
-            	if (segundosRestando <= 0) {
-            	    stop();
-            	    if (finishListener != null) finishListener.onFinish();
-            	}
-            }
-        );
+                    // Verifica se o timer chegou a zero
+                    if (segundosRestando <= 0) {
+                        stop();
+                        if (finishListener != null)
+                            finishListener.onFinish();
+                    } else {
+                        // Só decrementa se ainda não chegou a zero
+                        segundosRestando--;
+                    }
+                });
 
         // Cria a Timeline
         timeline = new Timeline(keyFrame);
@@ -84,8 +86,7 @@ public class TimerUtil {
         }
     }
 
-
-	// Threading pra evitar travamentos na inteface gráfica
+    // Threading pra evitar travamentos na inteface gráfica
     public static void waitMs(long ms, Runnable afterWait) {
         // Envia a tarefa para o executor
         executor.submit(() -> {
@@ -96,18 +97,20 @@ public class TimerUtil {
                 // Interrupção: thread parada
             }
             // Executa o Runnable após a espera
-            if (afterWait != null) afterWait.run();
+            if (afterWait != null)
+                afterWait.run();
         });
     }
 
     // Converte o tempo para string
     public static String formatSeconds(int totalSeconds) {
-        if (totalSeconds < 0) totalSeconds = 0;
+        if (totalSeconds < 0)
+            totalSeconds = 0;
         int min = totalSeconds / 60;
         int sec = totalSeconds % 60;
         return String.format("%02d:%02d", min, sec);
     }
-    
+
     // Setters
     public void setTickListener(TimerTickListener listener) {
         this.tickListener = listener;
@@ -121,12 +124,12 @@ public class TimerUtil {
     public boolean isRunning() {
         return timeline != null && timeline.getStatus() == Timeline.Status.RUNNING;
     }
-    
+
     // Boolean que verifica se a contagem foi pausada
     public boolean isPaused() {
         return timeline != null && timeline.getStatus() == Timeline.Status.PAUSED;
     }
-    
+
     // Getter, retorna o tempo restante no timer
     public int getRemainingSeconds() {
         return segundosRestando;

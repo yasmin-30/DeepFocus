@@ -1,6 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.control.cell.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
 
-<AnchorPane xmlns:fx="http://javafx.com/fxml" fx:controller="deepfocus.controller.HistoricoController">
-</AnchorPane>
+<VBox xmlns:fx="http://javafx.com/fxml" fx:controller="deepfocus.controller.HistoricoController" 
+      spacing="20" style="-fx-padding: 30px;">
+    
+    <!-- Tabela de Histórico -->
+    <TableView fx:id="historicoTable" prefHeight="450">
+        <columns>
+            <TableColumn fx:id="dataColumn" text="Data" prefWidth="250"/>
+            <TableColumn fx:id="tempoFocoColumn" text="Tempo de foco" prefWidth="250"/>
+            <TableColumn fx:id="tempoDescansoColumn" text="Tempo de descanso" prefWidth="250"/>
+        </columns>
+    </TableView>
+    
+</VBox>

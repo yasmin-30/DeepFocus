@@ -1,0 +1,166 @@
+/* Estilos globais do DeepFocus */
+
+.root {
+    -fx-font-family: "Segoe UI", Arial, sans-serif;
+    -fx-background-color: #f5f5f5;
+}
+
+/* Header */
+.header {
+    -fx-background-color: white;
+    -fx-padding: 15px 20px;
+    -fx-border-color: #e0e0e0;
+    -fx-border-width: 0 0 1 0;
+}
+
+.header-title {
+    -fx-font-size: 24px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #333333;
+}
+
+/* Menu Lateral */
+.sidebar {
+    -fx-background-color: #f8f8f8;
+    -fx-border-color: #e0e0e0;
+    -fx-border-width: 0 1 0 0;
+    -fx-padding: 0;
+}
+
+.menu-button {
+    -fx-background-color: transparent;
+    -fx-text-fill: #666666;
+    -fx-font-size: 16px;
+    -fx-padding: 15px 20px;
+    -fx-alignment: center-left;
+    -fx-cursor: hand;
+}
+
+.menu-button:hover {
+    -fx-background-color: #e8e8e8;
+}
+
+.menu-button-selected {
+    -fx-background-color: #d0d0d0;
+    -fx-text-fill: #333333;
+}
+
+/* Área de conteúdo */
+.content-area {
+    -fx-padding: 30px;
+    -fx-background-color: white;
+}
+
+/* Botões */
+.primary-button {
+    -fx-background-color: #6b6b6b;
+    -fx-text-fill: white;
+    -fx-font-size: 14px;
+    -fx-padding: 12px 30px;
+    -fx-background-radius: 25;
+    -fx-cursor: hand;
+}
+
+.primary-button:hover {
+    -fx-background-color: #555555;
+}
+
+.secondary-button {
+    -fx-background-color: white;
+    -fx-text-fill: #666666;
+    -fx-font-size: 14px;
+    -fx-padding: 10px 25px;
+    -fx-border-color: #cccccc;
+    -fx-border-width: 1;
+    -fx-border-radius: 5;
+    -fx-background-radius: 5;
+    -fx-cursor: hand;
+}
+
+.secondary-button:hover {
+    -fx-background-color: #f5f5f5;
+}
+
+/* Timer */
+.timer-circle {
+    -fx-stroke: #333333;
+    -fx-stroke-width: 2;
+    -fx-fill: transparent;
+}
+
+.timer-label {
+    -fx-font-size: 48px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #666666;
+}
+
+/* Post-it (Lembretes) */
+.post-it {
+    -fx-background-color: #c0c0c0;
+    -fx-padding: 15px;
+    -fx-background-radius: 5;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.2), 5, 0, 2, 2);
+}
+
+/* CheckBox de conclusão nos post-its */
+.post-it .check-box {
+    -fx-text-fill: #00aa00;
+}
+
+.post-it .check-box .box {
+    -fx-background-color: white;
+    -fx-border-color: #00aa00;
+    -fx-border-width: 2;
+    -fx-border-radius: 3;
+}
+
+.post-it .check-box:selected .mark {
+    -fx-background-color: #00aa00;
+}
+
+/* Botão de excluir no post-it */
+.delete-button {
+    -fx-background-color: transparent;
+    -fx-text-fill: #666666;
+    -fx-font-size: 20px;
+    -fx-font-weight: bold;
+    -fx-padding: 0 5px;
+    -fx-cursor: hand;
+    -fx-border-width: 0;
+    -fx-background-radius: 3;
+}
+
+.delete-button:hover {
+    -fx-background-color: #ff4444;
+    -fx-text-fill: white;
+}
+
+/* Tabelas */
+.table-view {
+    -fx-border-color: #cccccc;
+    -fx-border-width: 1;
+}
+
+.table-view .column-header {
+    -fx-background-color: #f0f0f0;
+    -fx-font-weight: bold;
+}
+
+/* Campos de texto */
+.text-field {
+    -fx-padding: 10px;
+    -fx-border-color: #cccccc;
+    -fx-border-width: 1;
+    -fx-border-radius: 3;
+    -fx-background-radius: 3;
+}
+
+.text-field:focused {
+    -fx-border-color: #666666;
+}
+
+/* Labels */
+.field-label {
+    -fx-font-size: 14px;
+    -fx-text-fill: #666666;
+}

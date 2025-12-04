@@ -9,22 +9,22 @@ import java.util.List;
 
 public class TarefasService {
 
-    // Caminho padrão 
-    private static final String CAMINHO_PADRAO = "data/tarefas.json"; 
-    
+    // Caminho padrão
+    private static final String CAMINHO_PADRAO = "data/tarefas.json";
+
     private List<Tarefa> tarefas = new ArrayList<>();
-    
+
     // Construtor Padrão
     public TarefasService() {
         try {
-        	// Desserialização
+            // Desserialização
             List<Tarefa> carregadas = JsonPersistence.carregar(CAMINHO_PADRAO, Tarefa.class);
-            tarefas = new ArrayList<>(carregadas); 
-            
-        // Tratamento de erros
+            tarefas = new ArrayList<>(carregadas);
+
+            // Tratamento de erros
         } catch (IOException e) {
             System.out.println("⚠ Não foi possível ler o arquivo. Iniciando lista vazia.");
-            tarefas = new ArrayList<>(); 
+            tarefas = new ArrayList<>();
         } catch (Exception e) {
             System.out.println("⚠ Erro ao carregar tarefas, iniciando lista vazia.");
             tarefas = new ArrayList<>();
@@ -38,7 +38,7 @@ public class TarefasService {
     }
 
     public List<Tarefa> listarTarefas() {
-        return new ArrayList<>(tarefas); 
+        return new ArrayList<>(tarefas);
     }
 
     public void removerTarefa(String id) throws Exception {
@@ -46,10 +46,10 @@ public class TarefasService {
         salvar();
     }
 
-    public void editarTarefa(String id, String novoTitulo, int novoTempoEstimado) throws Exception {
+    public void editarTarefa(String id, String novoTitulo, String novoPrazo) throws Exception {
         Tarefa tarefa = buscarPorId(id);
         tarefa.setTitulo(novoTitulo);
-        tarefa.setTempoEstimado(novoTempoEstimado);
+        tarefa.setPrazo(novoPrazo);
         salvar();
     }
 
@@ -59,14 +59,24 @@ public class TarefasService {
         salvar();
     }
 
+    public void toggleConcluida(String id) throws Exception {
+        Tarefa tarefa = buscarPorId(id);
+        tarefa.setConcluida(!tarefa.isConcluida());
+        salvar();
+    }
+
+    public boolean podeAdicionarMais() {
+        return tarefas.size() < 9; // Limite de 9 lembretes (3x3)
+    }
+
     // Procura a tarefa desejada
     private Tarefa buscarPorId(String id) {
         return tarefas.stream()
-            .filter(t -> t.getId().equals(id))
-            .findFirst()
-            .orElseThrow(() -> new IllegalArgumentException("Tarefa não encontrada: " + id));
+                .filter(t -> t.getId().equals(id))
+                .findFirst()
+                .orElseThrow(() -> new IllegalArgumentException("Tarefa não encontrada: " + id));
     }
-    
+
     // Serialização
     public void salvar() throws Exception {
         JsonPersistence.salvar(CAMINHO_PADRAO, tarefas);

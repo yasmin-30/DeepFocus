@@ -1,6 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
 
-<AnchorPane xmlns:fx="http://javafx.com/fxml" fx:controller="deepfocus.controller.TarefasController">
-</AnchorPane>
+<VBox xmlns:fx="http://javafx.com/fxml" fx:controller="deepfocus.controller.TarefasController" 
+      spacing="30" style="-fx-padding: 30px;">
+    
+    <!-- Grid de Post-its -->
+    <FlowPane fx:id="postItContainer" hgap="20" vgap="20" prefWrapLength="800">
+        <!-- Post-its serão adicionados dinamicamente -->
+    </FlowPane>
+    
+    <!-- Botão Adicionar -->
+    <HBox alignment="CENTER">
+        <Button fx:id="btnAdicionar" text="Adicionar lembrete" styleClass="secondary-button" onAction="#handleAddLembrete"/>
+    </HBox>
+    
+</VBox>
+
