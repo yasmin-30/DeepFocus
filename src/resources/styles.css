@@ -1,4 +1,4 @@
-/* Estilos globais do DeepFocus */
+﻿/* Estilos globais do DeepFocus */
 
 .root {
     -fx-font-family: "Segoe UI", Arial, sans-serif;
@@ -7,29 +7,29 @@
 
 /* Header */
 .header {
-    -fx-background-color: white;
+    -fx-background-color: #253453;
     -fx-padding: 15px 20px;
-    -fx-border-color: #e0e0e0;
+    -fx-border-color: #253453;
     -fx-border-width: 0 0 1 0;
 }
 
 .header-title {
     -fx-font-size: 24px;
     -fx-font-weight: bold;
-    -fx-text-fill: #333333;
+    -fx-text-fill: white;
 }
 
 /* Menu Lateral */
 .sidebar {
-    -fx-background-color: #f8f8f8;
-    -fx-border-color: #e0e0e0;
+    -fx-background-color: #253453;
+    -fx-border-color: #253453;
     -fx-border-width: 0 1 0 0;
     -fx-padding: 0;
 }
 
 .menu-button {
     -fx-background-color: transparent;
-    -fx-text-fill: #666666;
+    -fx-text-fill: white;
     -fx-font-size: 16px;
     -fx-padding: 15px 20px;
     -fx-alignment: center-left;
@@ -37,23 +37,25 @@
 }
 
 .menu-button:hover {
-    -fx-background-color: #e8e8e8;
+    -fx-background-color: #365571;
 }
 
 .menu-button-selected {
-    -fx-background-color: #d0d0d0;
-    -fx-text-fill: #333333;
+    -fx-background-color: #365571;
+    -fx-text-fill: white;
 }
 
-/* Área de conteúdo */
+/* Area de conteudo */
 .content-area {
     -fx-padding: 30px;
-    -fx-background-color: white;
+    -fx-background-image: url('assets/gradiente.png');
+    -fx-background-size: cover;
+    -fx-background-position: center;
 }
 
-/* Botões */
+/* Botoes */
 .primary-button {
-    -fx-background-color: #6b6b6b;
+    -fx-background-color: #5a8dbd;
     -fx-text-fill: white;
     -fx-font-size: 14px;
     -fx-padding: 12px 30px;
@@ -62,15 +64,15 @@
 }
 
 .primary-button:hover {
-    -fx-background-color: #555555;
+    -fx-background-color: #4a7aad;
 }
 
 .secondary-button {
-    -fx-background-color: white;
-    -fx-text-fill: #666666;
+    -fx-background-color: #5a8dbd;
+    -fx-text-fill: white;
     -fx-font-size: 14px;
     -fx-padding: 10px 25px;
-    -fx-border-color: #cccccc;
+    -fx-border-color: #5a8dbd;
     -fx-border-width: 1;
     -fx-border-radius: 5;
     -fx-background-radius: 5;
@@ -78,31 +80,65 @@
 }
 
 .secondary-button:hover {
-    -fx-background-color: #f5f5f5;
+    -fx-background-color: #4a7aad;
 }
 
 /* Timer */
+.timer-container {
+    -fx-background-color: #253453;
+    -fx-background-radius: 20;
+    -fx-padding: 40px;
+}
+
 .timer-circle {
-    -fx-stroke: #333333;
+    -fx-stroke: white;
     -fx-stroke-width: 2;
     -fx-fill: transparent;
 }
 
 .timer-label {
-    -fx-font-size: 48px;
+    -fx-font-size: 36px;
     -fx-font-weight: bold;
-    -fx-text-fill: #666666;
+    -fx-text-fill: white;
 }
 
 /* Post-it (Lembretes) */
 .post-it {
-    -fx-background-color: #c0c0c0;
-    -fx-padding: 15px;
+    -fx-background-color: #253453;
+    -fx-padding: 10px;
     -fx-background-radius: 5;
     -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.2), 5, 0, 2, 2);
 }
 
-/* CheckBox de conclusão nos post-its */
+/* ScrollPane para lembretes */
+.scroll-pane {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+}
+
+.scroll-pane .viewport {
+    -fx-background-color: transparent;
+}
+
+.scroll-pane .scroll-bar:vertical {
+    -fx-background-color: transparent;
+}
+
+.scroll-pane .scroll-bar:vertical .track {
+    -fx-background-color: rgba(255, 255, 255, 0.1);
+    -fx-background-radius: 5;
+}
+
+.scroll-pane .scroll-bar:vertical .thumb {
+    -fx-background-color: rgba(90, 141, 189, 0.7);
+    -fx-background-radius: 5;
+}
+
+.scroll-pane .scroll-bar:vertical .thumb:hover {
+    -fx-background-color: rgba(90, 141, 189, 1);
+}
+
+/* CheckBox de conclusao nos post-its */
 .post-it .check-box {
     -fx-text-fill: #00aa00;
 }
@@ -118,10 +154,10 @@
     -fx-background-color: #00aa00;
 }
 
-/* Botão de excluir no post-it */
+/* Botao de excluir no post-it */
 .delete-button {
     -fx-background-color: transparent;
-    -fx-text-fill: #666666;
+    -fx-text-fill: white;
     -fx-font-size: 20px;
     -fx-font-weight: bold;
     -fx-padding: 0 5px;
@@ -136,14 +172,65 @@
 }
 
 /* Tabelas */
+.table-container {
+    -fx-background-color: #253453;
+    -fx-background-radius: 20;
+    -fx-padding: 30px;
+}
+
 .table-view {
-    -fx-border-color: #cccccc;
-    -fx-border-width: 1;
+    -fx-background-color: #253453;
+    -fx-border-color: transparent;
+    -fx-border-width: 0;
+}
+
+.table-view .column-header-background {
+    -fx-background-color: #253453;
 }
 
 .table-view .column-header {
-    -fx-background-color: #f0f0f0;
+    -fx-background-color: #253453;
+    -fx-text-fill: white !important;
     -fx-font-weight: bold;
+    -fx-border-color: white;
+    -fx-border-width: 0 1 1 0;
+}
+
+.table-view .column-header:last-child {
+    -fx-border-width: 0 0 1 0;
+}
+
+.table-view .column-header .label {
+    -fx-text-fill: white;
+}
+
+.table-view .filler {
+    -fx-background-color: #253453;
+}
+
+.table-view .table-cell {
+    -fx-text-fill: white;
+    -fx-border-color: white;
+    -fx-border-width: 0 1 1 0;
+    -fx-background-color: #253453;
+}
+
+.table-view .table-cell:last-child {
+    -fx-border-width: 0 0 1 0;
+}
+
+.table-view .table-row-cell {
+    -fx-background-color: #253453;
+    -fx-border-color: transparent;
+    -fx-border-width: 0;
+}
+
+.table-view .table-row-cell:selected {
+    -fx-background-color: #365571;
+}
+
+.table-view .placeholder .label {
+    -fx-text-fill: white;
 }
 
 /* Campos de texto */
@@ -162,5 +249,28 @@
 /* Labels */
 .field-label {
     -fx-font-size: 14px;
-    -fx-text-fill: #666666;
+    -fx-text-fill: white;
+}
+
+/* TextArea dentro dos post-its */
+.post-it .text-area {
+    -fx-control-inner-background: #253453;
+    -fx-text-fill: white;
+    -fx-prompt-text-fill: rgba(255, 255, 255, 0.6);
+}
+
+.post-it .text-area .content {
+    -fx-background-color: #253453;
+}
+
+/* TextField dentro dos post-its (campo de prazo) */
+.post-it .text-field {
+    -fx-background-color: rgba(90, 141, 189, 0.5);
+    -fx-text-fill: white;
+    -fx-prompt-text-fill: rgba(255, 255, 255, 0.6);
+}
+
+/* Labels dentro dos post-its */
+.post-it .label {
+    -fx-text-fill: white;
 }

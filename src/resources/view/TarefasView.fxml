@@ -7,15 +7,17 @@
 <VBox xmlns:fx="http://javafx.com/fxml" fx:controller="deepfocus.controller.TarefasController" 
       spacing="30" style="-fx-padding: 30px;">
     
-    <!-- Grid de Post-its -->
-    <FlowPane fx:id="postItContainer" hgap="20" vgap="20" prefWrapLength="800">
-        <!-- Post-its serão adicionados dinamicamente -->
-    </FlowPane>
-    
     <!-- Botão Adicionar -->
     <HBox alignment="CENTER">
-        <Button fx:id="btnAdicionar" text="Adicionar lembrete" styleClass="secondary-button" onAction="#handleAddLembrete"/>
+        <Button fx:id="btnAdicionar" text="Adicionar lembrete" styleClass="primary-button" onAction="#handleAddLembrete"/>
     </HBox>
     
+    <!-- ScrollPane para permitir rolagem de todos os lembretes -->
+    <ScrollPane fitToWidth="true" style="-fx-background-color: transparent; -fx-border-color: transparent;">
+        <!-- Grid de Post-its -->
+        <FlowPane fx:id="postItContainer" hgap="20" vgap="20" prefWrapLength="800">
+            <!-- Post-its serão adicionados dinamicamente -->
+        </FlowPane>
+    </ScrollPane>
+    
 </VBox>
-

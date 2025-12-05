@@ -5,22 +5,25 @@
 <?import javafx.geometry.Insets?>
 
 <VBox xmlns:fx="http://javafx.com/fxml" fx:controller="deepfocus.controller.NotasController" 
-      spacing="20" style="-fx-padding: 30px;">
+      alignment="CENTER" spacing="20" style="-fx-padding: 30px;">
     
-    <!-- Instrução -->
-    <Label text="Clique na célula para editá-la" style="-fx-font-size: 14px; -fx-text-fill: #666;"/>
-    
-    <!-- Tabela de Notas -->
-    <TableView fx:id="notasTable" editable="true" prefHeight="400">
-        <columns>
-            <TableColumn fx:id="disciplinaColumn" text="Disciplina" prefWidth="250" editable="true"/>
-            <TableColumn fx:id="nota1Column" text="Unidade 1" prefWidth="150" editable="true"/>
-            <TableColumn fx:id="nota2Column" text="Unidade 2" prefWidth="150" editable="true"/>
-            <TableColumn fx:id="nota3Column" text="Unidade 3" prefWidth="150" editable="true"/>
-        </columns>
-        <columnResizePolicy>
-            <TableView fx:constant="CONSTRAINED_RESIZE_POLICY"/>
-        </columnResizePolicy>
-    </TableView>
+    <!-- Container com fundo arredondado -->
+    <VBox styleClass="table-container" spacing="20" maxWidth="800">
+        <!-- Instrução -->
+        <Label text="Clique na célula para editá-la" style="-fx-font-size: 14px; -fx-text-fill: white;"/>
+        
+        <!-- Tabela de Notas -->
+        <TableView fx:id="notasTable" editable="true" prefHeight="400">
+            <columns>
+                <TableColumn fx:id="disciplinaColumn" text="Disciplina" prefWidth="250" editable="true"/>
+                <TableColumn fx:id="nota1Column" text="Unidade 1" prefWidth="150" editable="true"/>
+                <TableColumn fx:id="nota2Column" text="Unidade 2" prefWidth="150" editable="true"/>
+                <TableColumn fx:id="nota3Column" text="Unidade 3" prefWidth="150" editable="true"/>
+            </columns>
+            <columnResizePolicy>
+                <TableView fx:constant="CONSTRAINED_RESIZE_POLICY"/>
+            </columnResizePolicy>
+        </TableView>
+    </VBox>
     
 </VBox>

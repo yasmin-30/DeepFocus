@@ -6,15 +6,21 @@
 <?import javafx.geometry.Insets?>
 
 <VBox xmlns:fx="http://javafx.com/fxml" fx:controller="deepfocus.controller.HistoricoController" 
-      spacing="20" style="-fx-padding: 30px;">
+      alignment="CENTER" spacing="20" style="-fx-padding: 30px;">
     
-    <!-- Tabela de Histórico -->
-    <TableView fx:id="historicoTable" prefHeight="450">
-        <columns>
-            <TableColumn fx:id="dataColumn" text="Data" prefWidth="250"/>
-            <TableColumn fx:id="tempoFocoColumn" text="Tempo de foco" prefWidth="250"/>
-            <TableColumn fx:id="tempoDescansoColumn" text="Tempo de descanso" prefWidth="250"/>
-        </columns>
-    </TableView>
+    <!-- Container com fundo arredondado -->
+    <VBox styleClass="table-container" spacing="20" maxWidth="800">
+        <!-- Tabela de Histórico -->
+        <TableView fx:id="historicoTable" prefHeight="350" VBox.vgrow="ALWAYS">
+            <columns>
+                <TableColumn fx:id="dataColumn" text="Data" prefWidth="200"/>
+                <TableColumn fx:id="tempoFocoColumn" text="Tempo de foco" prefWidth="200"/>
+                <TableColumn fx:id="tempoDescansoColumn" text="Tempo de descanso" prefWidth="200"/>
+            </columns>
+            <columnResizePolicy>
+                <TableView fx:constant="CONSTRAINED_RESIZE_POLICY"/>
+            </columnResizePolicy>
+        </TableView>
+    </VBox>
     
 </VBox>

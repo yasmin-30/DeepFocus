@@ -46,7 +46,7 @@ public class TarefasController {
         // CheckBox para marcar como concluído (tic verde)
         CheckBox checkConcluida = new CheckBox("✓");
         checkConcluida.setSelected(tarefa.isConcluida());
-        checkConcluida.setStyle("-fx-text-fill: #00aa00; -fx-font-size: 16px; -fx-font-weight: bold;");
+        checkConcluida.setStyle("-fx-font-size: 16px; -fx-font-weight: bold;");
         checkConcluida.setOnAction(e -> {
             try {
                 tarefasService.toggleConcluida(tarefa.getId());
@@ -73,8 +73,7 @@ public class TarefasController {
         textArea.setWrapText(true);
         textArea.setPrefRowCount(3);
         textArea.setPromptText("Digite o lembrete...");
-        textArea.setStyle("-fx-background-color: transparent; -fx-border-color: transparent; " +
-                "-fx-text-fill: #333; -fx-font-size: 13px; -fx-padding: 0;");
+        textArea.setStyle("-fx-border-color: transparent; -fx-font-size: 13px; -fx-padding: 0;");
         VBox.setVgrow(textArea, Priority.ALWAYS);
 
         // Salvar título ao perder o foco
@@ -102,9 +101,7 @@ public class TarefasController {
         TextField campoPrazo = new TextField(tarefa.getPrazo());
         campoPrazo.setPromptText("dd/mm/aaaa");
         campoPrazo.setMaxWidth(90);
-        campoPrazo.setStyle("-fx-background-color: rgba(255,255,255,0.5); " +
-                "-fx-border-color: #999; -fx-border-width: 0 0 1 0; " +
-                "-fx-font-size: 11px; -fx-padding: 2;");
+        campoPrazo.setStyle("-fx-border-width: 0 0 1 0; -fx-font-size: 11px; -fx-padding: 2;");
 
         // Salvar prazo ao perder o foco
         campoPrazo.focusedProperty().addListener((obs, oldVal, newVal) -> {
@@ -135,11 +132,6 @@ public class TarefasController {
 
     @FXML
     private void handleAddLembrete() {
-        if (!tarefasService.podeAdicionarMais()) {
-            mostrarAlerta("Limite atingido", "Você já possui o máximo de 9 lembretes!");
-            return;
-        }
-
         try {
             Tarefa novaTarefa = new Tarefa("Digite aqui...", "");
             tarefasService.criarTarefa(novaTarefa);
@@ -179,17 +171,7 @@ public class TarefasController {
     }
 
     private void atualizarBotaoAdicionar() {
-        if (btnAdicionar != null) {
-            btnAdicionar.setDisable(!tarefasService.podeAdicionarMais());
-        }
-    }
-
-    private void mostrarAlerta(String titulo, String mensagem) {
-        Alert alert = new Alert(Alert.AlertType.WARNING);
-        alert.setTitle(titulo);
-        alert.setHeaderText(null);
-        alert.setContentText(mensagem);
-        alert.showAndWait();
+        // Botão sempre habilitado - sem limite de lembretes
     }
 
     private void mostrarErro(String titulo, String mensagem) {

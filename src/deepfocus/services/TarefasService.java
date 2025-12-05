@@ -1,4 +1,4 @@
-package deepfocus.services;
+﻿package deepfocus.services;
 
 import deepfocus.modelos.Tarefa;
 import deepfocus.persistence.JsonPersistence;
@@ -66,7 +66,7 @@ public class TarefasService {
     }
 
     public boolean podeAdicionarMais() {
-        return tarefas.size() < 9; // Limite de 9 lembretes (3x3)
+        return true; // Sem limite de lembretes
     }
 
     // Procura a tarefa desejada
