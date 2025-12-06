@@ -11,7 +11,15 @@
 .mtj.tmp/
 
 # Package Files #
-# *.jar - Comentado para permitir versionar bibliotecas na pasta lib
+# Maven
+dependency-reduced-pom.xml
+buildNumber.properties
+.mvn/timing.properties
+# https://github.com/takari/maven-wrapper#usage-without-binary-jar
+.mvn/wrapper/maven-wrapper.jar
+
+# *.jar - Descomentado pois o Maven gerencia dependencias agora
+*.jar
 *.war
 *.nar
 *.ear
